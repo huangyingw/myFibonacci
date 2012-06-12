@@ -18,24 +18,28 @@ public class Fibonacci {
 			return FibonacciRec(n - 1) + FibonacciRec(n - 2);
 	}
 
-	public int[] fib;
+	public int[] data;
 	private int size;
 
 	public Fibonacci(int size) {
 		super();
 		this.size = size;
-		fib = new int[size];
+		data = new int[size + 1];
 		for (int i = 0; i < size; i++) {
-			fib[i] = 0;
+			data[i] = 0;
 		}
 	}
 
 	public int FibonacciRecMemorized(int n) {
+		if (data[n] > 0)
+			return data[n];
 		if (n == 0)
 			return 0;
 		else if (n == 1)
 			return 1;
 		else
-			return FibonacciRec(n - 1) + FibonacciRec(n - 2);
+			data[n] = FibonacciRecMemorized(n - 1)
+					+ FibonacciRecMemorized(n - 2);
+		return data[n];
 	}
 }
