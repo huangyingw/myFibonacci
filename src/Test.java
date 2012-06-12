@@ -1,6 +1,8 @@
 public class Test {
 	public static void main(String[] args) {
-		System.out.println(Fibonacci.FibonacciLoop(11));
-		System.out.println(Fibonacci.FibonacciRec(10));
+		Fibonacci fib = new Fibonacci(10);
+		System.out.println(fib.FibonacciLoop(10));
+		System.out.println(fib.FibonacciRec(10));
+		System.out.println(fib.FibonacciRecMemorized(10));
 	}
 }
