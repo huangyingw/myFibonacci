@@ -44,8 +44,10 @@ public class Fibonacci {
 	}
 
 	public int FibonacciRecMemorized(int n) {
-		if (data[n] > 0)
+		if (data[n] > 0) {
+			count++;
 			return data[n];
+		}
 		if (n == 0)
 			return 0;
 		else if (n == 1)
@@ -53,7 +55,7 @@ public class Fibonacci {
 		else {
 			data[n] = FibonacciRecMemorized(n - 1)
 					+ FibonacciRecMemorized(n - 2);
-			count++;
+
 		}
 		return data[n];
 	}
