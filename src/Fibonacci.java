@@ -5,6 +5,7 @@ public class Fibonacci {
 		for (int i = 1; i <= n / 2; i++) {
 			f1 = f1 + f2;
 			f2 = f1 + f2;
+			count++;
 		}
 		return f1;
 	}
