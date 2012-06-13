@@ -10,8 +10,6 @@ public class Fibonacci {
 		return f1;
 	}
 
-
-
 	public int[] data;
 	private int size;
 	private int count = 0;
@@ -33,18 +31,18 @@ public class Fibonacci {
 		}
 	}
 
+	int globalV = 0;
+
 	public int FibonacciOne(int n) {
-		if (data[n] > 0) {
-			count++;
-			return data[n];
-		}
-		if (n == 0)
-			return 0;
-		else if (n == 1)
+		int toReturn;
+		int pre;
+		if (n == 1)
 			return 1;
 		else {
-			data[n] = FibonacciOne(n - 1) + FibonacciOne(n - 2);
+			pre = FibonacciOne(n - 1);
+			toReturn = pre + globalV;
+			globalV = pre;
+			return toReturn;
 		}
-		return data[n];
 	}
 }
