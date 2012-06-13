@@ -10,6 +10,17 @@ public class Fibonacci {
 		return f1;
 	}
 
+	public int FibonacciRec(int n) {
+		count++;
+		if (n == 0)
+			return 0;
+		else if (n == 1)
+			return 1;
+		else {
+			return FibonacciRec(n - 1) + FibonacciRec(n - 2);
+		}
+	}
+
 	public int[] data;
 	private int size;
 	private int count = 0;
@@ -31,9 +42,26 @@ public class Fibonacci {
 		}
 	}
 
+	public int FibonacciRecMemorized(int n) {
+		count++;
+		if (data[n] > 0) {
+			return data[n];
+		}
+		if (n == 0)
+			return 0;
+		else if (n == 1)
+			return 1;
+		else {
+			data[n] = FibonacciRecMemorized(n - 1)
+					+ FibonacciRecMemorized(n - 2);
+		}
+		return data[n];
+	}
+
 	int globalV = 0;
 
 	public int FibonacciOne(int n) {
+		count++;
 		int toReturn;
 		int pre;
 		if (n == 1)
@@ -44,5 +72,10 @@ public class Fibonacci {
 			globalV = pre;
 			return toReturn;
 		}
+	}
+
+	public void resetCount() {
+		// TODO Auto-generated method stub
+		setCount(0);
 	}
 }
